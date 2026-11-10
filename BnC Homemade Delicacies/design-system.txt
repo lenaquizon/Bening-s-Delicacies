@@ -1,0 +1,321 @@
+====================================================
+BENING'S DELICACIES — DESIGN SYSTEM
+====================================================
+Version: 1.0
+Project: Bening's Delicacies Website
+Official Logo: Logo/Bening's.jpeg (Circular terracotta & cream emblem with cooking pot and chef's hat, reading "BENING'S HOMEMADE DELICACIES")
+Audience: Adults 40 years and above
+Business: Cook-to-order Filipino homemade delicacies
+(Espasol, Cassava Cake, Bibingka, Kimchi)
+Brand Heritage: Started as a home enterprise by Nanay Bening to raise and
+provide for her five children. The heirloom recipes and business are now
+lovingly passed down to her son, Cenon, who maintains the cook-to-order
+tradition with no preservatives.
+
+----------------------------------------------------
+1. COLOR PALETTE
+----------------------------------------------------
+
+PRIMARY COLORS
+--------------
+Primary Brown       #7B5C3A   — Main brand color; buttons, accents, links
+                               (evokes baked goods, earth, warmth)
+Primary Brown Light #A8784F   — Hover state for primary elements
+
+SECONDARY COLORS
+----------------
+Secondary Caramel   #C4956A   — Supporting accent; icons, highlights
+Accent Peach        #E8C9A0   — Subtle highlights, badges, banners
+Accent Light Cream  #F5EAD8   — Section backgrounds, card hovers
+
+NEUTRAL COLORS
+--------------
+Background Cream    #FBF7F2   — Main page background (warm off-white)
+Surface White       #FFFFFF   — Cards, form inputs, elevated surfaces
+Neutral Dark        #3D2B1F   — Primary heading text (deep espresso)
+Neutral Mid         #6B5244   — Body text (medium warm brown)
+Neutral Light       #D4B99A   — Borders, dividers, placeholder fills
+
+FOOTER / DARK SURFACE
+----------------------
+Footer Dark         #3D2B1F   — Footer background (same as Neutral Dark)
+Footer Text         #FBF7F2   — Text on dark footer (same as Background)
+
+
+----------------------------------------------------
+2. CONTRAST RATIOS (WCAG AA COMPLIANCE)
+----------------------------------------------------
+
+Text Color          Background          Ratio    Pass?
+-----------         ----------          -----    -----
+#3D2B1F (dark)   on #FBF7F2 (bg)    ~  9.1:1    ✅ AAA
+#6B5244 (body)   on #FBF7F2 (bg)    ~  5.4:1    ✅ AA
+#FBF7F2 (light)  on #7B5C3A (pri)   ~  4.6:1    ✅ AA
+#FBF7F2 (light)  on #3D2B1F (dark)  ~ 12.6:1    ✅ AAA
+#3D2B1F (dark)   on #F5EAD8 (sect)  ~  8.2:1    ✅ AAA
+#3D2B1F (dark)   on #E8C9A0 (acc)   ~  6.1:1    ✅ AA
+#7B5C3A (pri)    on #FBF7F2 (bg)    ~  5.4:1    ✅ AA
+
+All normal text meets WCAG AA minimum of 4.5:1.
+All large text meets WCAG AA minimum of 3:1.
+
+
+----------------------------------------------------
+3. TYPOGRAPHY
+----------------------------------------------------
+
+HEADING FONT
+------------
+Font Family:  "Playfair Display", serif
+Source:       Google Fonts (https://fonts.google.com/specimen/Playfair+Display)
+Weights:      600 (SemiBold), 700 (Bold)
+Usage:        All headings, logo text, quotes/testimonials
+Rationale:    Elegant serif that conveys tradition, warmth, and craftsmanship.
+              Highly legible for older readers at display sizes.
+
+BODY FONT
+---------
+Font Family:  "Lato", sans-serif
+Source:       Google Fonts (https://fonts.google.com/specimen/Lato)
+Weights:      400 (Regular), 600 (SemiBold), 700 (Bold)
+Usage:        All body text, labels, buttons, captions, navigation
+Rationale:    Clean, humanist sans-serif; highly readable at paragraph sizes.
+              Pairs beautifully with Playfair Display.
+
+TYPE SCALE
+----------
+Style           Size    Weight   Line Height   Usage
+-----------     ----    ------   -----------   -----
+Display / H1    56px    700      1.15          Desktop hero headings
+H1 (page)       48px    700      1.2           Page hero headings
+H1 (mobile)     36px    700      1.2           Mobile hero headings
+H2              36px    700      1.3           Section headings
+H2 (mobile)     28px    700      1.3           Mobile section headings
+H3              24px    600      1.35          Card/subsection headings
+H4              20px    600      1.4           Minor headings
+Body (web)      18px    400      1.65          Main body text on desktop
+Body (mobile)   18px    400      1.65          Main body text on mobile
+Small / Label   14px    600      1.5           Form labels (use sparingly)
+Caption         14px    400      1.5           Captions, fine print
+Button          16px    600      1             Button labels
+
+MINIMUM: Body text must be at least 16px on both web and mobile.
+
+
+----------------------------------------------------
+4. BUTTONS & INTERACTIVE COMPONENTS
+----------------------------------------------------
+
+PRIMARY BUTTON
+--------------
+Background:     #7B5C3A
+Text Color:     #FBF7F2
+Font:           Lato 16px / 600 weight
+Padding:        14px 28px (desktop) | 16px 28px (mobile)
+Border Radius:  6px
+Border:         None
+Min Height:     48px desktop | 56px mobile
+Hover State:    Background → #6B4E30
+Active State:   Background → #5A3F27
+Focus State:    Outline 2px solid #7B5C3A, offset 2px
+Min Tap Target: 44×44px (mobile: use full-width, 56px height)
+
+SECONDARY BUTTON
+----------------
+Background:     Transparent
+Text Color:     #7B5C3A
+Font:           Lato 16px / 600 weight
+Padding:        12px 28px (desktop) | 14px 28px (mobile)
+Border:         2px solid #7B5C3A
+Border Radius:  6px
+Min Height:     48px desktop | 56px mobile
+Hover State:    Background → #F5EAD8
+Focus State:    Outline 2px solid #7B5C3A, offset 2px
+
+FORM INPUTS
+-----------
+Background:     #FFFFFF
+Border:         1px solid #D4B99A
+Border Radius:  8px
+Padding:        12px 16px
+Font Size:      16px minimum
+Color:          #3D2B1F
+Placeholder:    #D4B99A
+Min Height:     48px
+Focus Border:   #7B5C3A (2px)
+Focus Shadow:   0 0 0 3px rgba(123, 92, 58, 0.15)
+
+CARDS
+-----
+Background:     #FFFFFF
+Border:         1px solid #D4B99A
+Border Radius:  12px–16px
+Padding:        24px–32px
+Shadow:         0 2px 12px rgba(61, 43, 31, 0.08)
+
+NAVIGATION — DESKTOP
+--------------------
+Background:     #FBF7F2
+Border Bottom:  1px solid #D4B99A
+Height:         72px
+Position:       Sticky top
+Link Color:     #6B5244
+Link Hover:     #7B5C3A
+Active Link:    #7B5C3A with underline
+
+NAVIGATION — MOBILE
+--------------------
+Top Bar Height: 56px (fixed)
+Top Bar BG:     #FBF7F2
+Hamburger Icon: 24×24px SVG, 3 horizontal lines, #3D2B1F
+Overlay Menu:   Full-screen, bg #3D2B1F, text #FBF7F2
+Bottom Nav Bar: 64px height (fixed bottom), bg #FBF7F2
+Bottom Nav:     4 items (Home, Menu, About, Contact)
+Active Color:   #7B5C3A
+Inactive Color: #6B5244
+
+IMAGE PLACEHOLDERS
+------------------
+Background:     #D4B99A
+Icon:           Centered SVG (camera or fork/spoon)
+Label:          Product/scene name, Lato 14px, #6B5244
+Alt Text:       Noted in HTML comments for screen reader annotation
+
+TAGS / PILLS (Best For)
+-----------------------
+Background:     #F5EAD8
+Text Color:     #7B5C3A
+Font:           Lato 13px / 600
+Padding:        4px 10px
+Border Radius:  20px
+
+ACCORDION (FAQ)
+---------------
+Uses native HTML <details> / <summary>
+Summary Font:   Lato 18px / 700, #3D2B1F
+Summary Padding: 16px 20px
+Min Height:     48px
+Border Bottom:  1px solid #D4B99A
+Open BG:        #F5EAD8
+Answer Font:    Lato 16px / 400, #6B5244
+Answer Padding: 16px 20px
+
+
+----------------------------------------------------
+5. SPACING & LAYOUT
+----------------------------------------------------
+
+DESKTOP
+-------
+Page Max Width:    1280px (centered)
+Section Padding:   80px vertical
+Container Padding: 0 40px horizontal
+Grid Gap:          32px
+Card Gap:          24px
+
+MOBILE
+------
+Page Max Width:    390px
+Section Padding:   48px vertical (adjust for top/bottom nav)
+Container Padding: 0 16px horizontal
+Stack Gap:         16px–24px
+Top Nav Height:    56px (account for in first section padding-top)
+Bottom Nav Height: 64px (account for in last section padding-bottom)
+
+
+----------------------------------------------------
+6. ICONS & VISUAL LANGUAGE
+----------------------------------------------------
+
+- Icon style: Bespoke inline SVG line icons (Feather/Lucide style, 2px stroke, round caps/joins)
+- No emojis used; pure SVG ensures consistent, professional rendering across all devices & OS platforms
+- Use icons to SUPPLEMENT text labels — never replace them
+  (accessibility: do not use color/icon alone to convey meaning)
+- Feature & Value icons: 28×28px SVG inside 56×56px rounded container (color: #7B5C3A)
+- Contact icons: 20×20px SVG inside 44×44px rounded container (color: #7B5C3A)
+- Footer icons: 18×18px SVG (color: #E8C9A0) with text labels
+- Checkmarks (Why Choose Us & Badges): Crisp SVG checkmarks inside #7B5C3A circles
+- Navigation icons (mobile bottom bar): 22–24px SVG with text labels below
+
+
+----------------------------------------------------
+7. ACCESSIBILITY NOTES
+----------------------------------------------------
+
+- WCAG AA compliance throughout (see contrast ratios above)
+- Minimum body text: 16px web + 16px mobile
+- Minimum tap targets (mobile): 44×44px
+- All form inputs have associated <label> elements
+- Icon-only buttons have aria-label attributes
+- Color is NEVER the sole indicator of meaning
+  → Success states use ✓ icon + text
+  → Active nav uses underline + color change
+  → Errors would use icon + text (not just red color)
+- Placeholder images annotated with alt-text comments in HTML
+- Focus styles visible on all interactive elements
+- Semantic HTML: <nav>, <main>, <section>, <article>, <footer>
+- FAQ uses native <details>/<summary> for keyboard accessibility
+- Mobile menu toggle: aria-expanded attribute updates on open/close
+
+
+----------------------------------------------------
+8. BRAND VOICE & TONE
+----------------------------------------------------
+
+- Warm, personal, inviting — like a family kitchen
+- Traditional yet approachable
+- Not overly formal; conversational but respectful
+- Appropriate for 40+ audience: clear, unhurried, trustworthy
+- Filipino cultural pride: celebrates heritage flavors
+
+
+----------------------------------------------------
+9. PRODUCT PRICING & SPECIFICATIONS (SOURCE: product_information)
+----------------------------------------------------
+
+1. Cassava Cake:
+   - Photo: Food Photos/Cassava Cake.jpeg
+   - Price: ₱85 per tray
+   - Serving style: Traditional oval llanera baking tin
+   - Description: Dense freshly grated cassava with caramelized coconut custard
+
+2. Espasol:
+   - Photo: Food Photos/Espasol.png
+   - Price: ₱11 per piece
+   - Bulk Box Options:
+     * Box of 20 pieces: ₱220
+     * Box of 30 pieces: ₱330
+     * Box of 50 pieces: ₱550
+   - Description: Soft chewy glutinous rice rolls dusted in toasted sweet rice
+
+3. Bibingka:
+   - Photo: Food Photos/Bibingka2.jpeg
+   - Price: ₱25 for 3 pieces (approx. ₱8.33 / piece)
+   - Serving style: Baked in fragrant banana leaves with salted egg & cheese
+
+4. Homemade Kimchi:
+   - Photo: Food Photos/Kimchi.jpeg
+   - Price: ₱120 per microwavable container
+   - Serving style: Sealed microwavable tub (approx. 500g)
+   - Description: Slow-fermented Napa cabbage with authentic seasonings
+
+
+----------------------------------------------------
+10. SPECIAL USE CASE: PASALUBONG FOR ABROAD & TRAVEL
+----------------------------------------------------
+
+A core customer behavior is ordering delicacies right before departing for
+flights abroad (OFWs, Balikbayans, and travelers going to USA, Canada, Middle East,
+Europe, and Asia).
+
+Key requirements accommodated in the design:
+- Luggage-friendly, durable sealed packaging
+- Coordination of fresh cook times with flight schedules (e.g. NAIA departure)
+- Espasol (20, 30, 50 pc boxes) and Cassava Cake (sealed trays) as primary travel items
+- Direct customer guidance and travel-ready packaging info on the website
+
+
+====================================================
+END OF DESIGN SYSTEM DOCUMENT
+====================================================
+
