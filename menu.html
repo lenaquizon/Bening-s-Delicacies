@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Delicacies Menu – Bening's Delicacies</title>
+  <link rel="icon" type="image/jpeg" href="Logo/Bening's.jpeg" />
+  <meta name="description" content="View Bening's Delicacies menu. Espasol, Cassava Cake, Bibingka, and seasonal Kimchi. Cooked fresh to order with pure ingredients." />
+
+  <!-- Google Fonts: Playfair Display + Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       DESIGN SYSTEM TOKENS
+       ========================================================= */
+    :root {
+      --primary:        #7B5C3A;
+      --primary-light:  #A8784F;
+      --primary-dark:   #64472B;
+      --secondary:      #C4956A;
+      --accent:         #E8C9A0;
+      --accent-light:   #F5EAD8;
+      --bg:             #FBF7F2;
+      --surface:        #FFFFFF;
+      --neutral-dark:   #3D2B1F;
+      --neutral-mid:    #6B5244;
+      --neutral-light:  #D4B99A;
+      --sage:           #5E7A5B;
+
+      --font-heading:   'Playfair Display', Georgia, serif;
+      --font-body:      'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --container-max:  1280px;
+      --radius-sm:      6px;
+      --radius-md:      12px;
+      --radius-lg:      20px;
+      --shadow-sm:      0 2px 8px rgba(61, 43, 31, 0.06);
+      --shadow-card:    0 4px 16px rgba(61, 43, 31, 0.08);
+      --shadow-hover:   0 8px 24px rgba(61, 43, 31, 0.12);
+      --transition:     0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--neutral-mid);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--neutral-dark);
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    p { color: var(--neutral-mid); }
+
+    a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--primary-light); }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition);
+      min-height: 48px;
+      border: 2px solid transparent;
+      line-height: 1;
+      text-align: center;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--bg);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover, .btn-primary:focus-visible {
+      background-color: var(--primary-light);
+      border-color: var(--primary-light);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(123, 92, 58, 0.25);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .btn-secondary:hover {
+      background-color: var(--accent-light);
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    .btn-full { width: 100%; }
+
+    /* =========================================================
+       NAVIGATION BAR
+       ========================================================= */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg);
+      border-bottom: 1px solid var(--neutral-light);
+      box-shadow: var(--shadow-sm);
+      height: 72px;
+      display: flex;
+      align-items: center;
+    }
+    .site-nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+        .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .site-logo img.logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover; object-position: center;
+      box-shadow: 0 2px 8px rgba(61, 43, 31, 0.16);
+      border: 2px solid var(--secondary);
+      flex-shrink: 0;
+      background: #FFFFFF;
+    }
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .logo-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--neutral-dark);
+      letter-spacing: -0.3px;
+    }
+    .logo-subtitle {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      margin-top: 2px;
+    }
+    .site-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .site-nav__links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-mid);
+      position: relative;
+      padding: 6px 0;
+    }
+    .site-nav__links a:hover,
+    .site-nav__links a.active {
+      color: var(--primary);
+    }
+    .site-nav__links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    .site-nav__cta { display: flex; align-items: center; }
+
+    /* Hamburger & Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1px solid var(--neutral-light);
+      border-radius: 8px;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 0;
+    }
+    .mobile-menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--neutral-dark);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+    .mobile-overlay-menu {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--neutral-dark);
+      padding: 32px 24px;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 999;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .mobile-overlay-menu.is-open { display: flex; }
+    .mobile-overlay-menu a {
+      color: var(--bg);
+      font-size: 20px;
+      font-weight: 600;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(212, 185, 154, 0.2);
+    }
+    .mobile-overlay-menu a.active { color: var(--accent); }
+    .mobile-overlay-menu .btn-primary { margin-top: 10px; color: var(--bg); min-height: 52px; }
+
+    /* Bottom Nav for Mobile */
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: var(--bg);
+      border-top: 1px solid var(--neutral-light);
+      box-shadow: 0 -2px 10px rgba(61,43,31,0.08);
+      z-index: 1000;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 8px;
+    }
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--neutral-mid);
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 60px;
+      min-height: 48px;
+      gap: 3px;
+    }
+    .bottom-nav-item.active { color: var(--primary); }
+    .bottom-nav-item svg { width: 22px; height: 22px; }
+
+    /* =========================================================
+       PAGE HERO
+       ========================================================= */
+    .page-hero {
+      background: var(--primary);
+      color: var(--bg);
+      padding: 60px 0;
+      text-align: center;
+    }
+    .page-hero h1 { color: #FFFFFF; font-size: 46px; margin-bottom: 12px; }
+    .page-hero p { color: var(--accent-light); font-size: 20px; max-width: 680px; margin: 0 auto; }
+
+    /* =========================================================
+       ORDER NOTICE BANNER
+       ========================================================= */
+    .order-notice {
+      background: var(--accent);
+      color: var(--neutral-dark);
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--neutral-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* =========================================================
+       PRODUCTS GRID SECTION (2x2 on Desktop, 1-col on Mobile)
+       ========================================================= */
+    .menu-section {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+      margin-bottom: 60px;
+    }
+    .menu-card {
+      background: var(--surface);
+      border: 1px solid var(--neutral-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--secondary);
+    }
+    .menu-card:hover .menu-food-img {
+      transform: scale(1.06);
+    }
+    .menu-card-dummy {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--secondary);
+    }
+
+    .menu-card-img-placeholder {
+      height: 250px;
+      background: var(--neutral-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      border-bottom: 1px solid rgba(61,43,31,0.1);
+    }
+    .menu-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      background: var(--surface);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .menu-card-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .menu-card-body h3 { font-size: 26px; margin-bottom: 10px; }
+    .menu-card-body p.desc {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--neutral-mid);
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .tags-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .tag-pill {
+      background: var(--accent-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .menu-price-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 18px;
+      border-top: 1px solid var(--accent-light);
+      flex-wrap: wrap;
+    }
+    .menu-price-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-price-label { font-size: 13px; color: var(--neutral-mid); font-weight: 600; }
+    .menu-price-val {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      font-family: var(--font-heading);
+    }
+
+    /* =========================================================
+       HOW TO ORDER SECTION
+       ========================================================= */
+    .order-steps-section {
+      padding: 80px 0;
+      background: var(--accent-light);
+      border-top: 1px solid var(--neutral-light);
+      border-bottom: 1px solid var(--neutral-light);
+    }
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-eyebrow {
+      font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--primary); margin-bottom: 8px; display: block;
+    }
+    .section-title { font-size: 38px; margin-bottom: 12px; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--neutral-light);
+      border-radius: var(--radius-md);
+      padding: 36px 28px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .step-card h3 { font-size: 22px; margin-bottom: 10px; }
+    .step-card p { font-size: 16px; line-height: 1.6; }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer {
+      background: var(--neutral-dark);
+      color: var(--accent-light);
+      padding: 64px 0 32px;
+      margin-top: auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand h4 { color: #FFFFFF; font-size: 24px; margin-bottom: 12px; }
+    .footer-brand p { color: rgba(245, 234, 216, 0.75); font-size: 15px; max-width: 320px; line-height: 1.6; }
+    .footer-col h5 {
+      color: #FFFFFF; font-size: 16px; margin-bottom: 18px;
+      font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: rgba(245, 234, 216, 0.75); font-size: 15px; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid rgba(212, 185, 154, 0.2);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(245, 234, 216, 0.6);
+    }
+
+    /* =========================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================= */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding-bottom: 64px; }
+      .site-nav__links, .site-nav__cta { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .mobile-bottom-nav { display: flex; }
+      .container { padding: 0 20px; }
+      .site-logo img.logo-img { width: 44px; height: 44px; }
+      .logo-title { font-size: 18px; }
+      .logo-subtitle { font-size: 10px; }
+
+      .page-hero { padding: 40px 0; }
+      .page-hero h1 { font-size: 32px; }
+      .page-hero p { font-size: 17px; }
+
+      .order-notice { font-size: 15px; padding: 14px 16px; }
+
+      /* Single column on mobile */
+      .menu-section { padding: 40px 0; }
+      .menu-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+      .menu-card-img-placeholder { height: 200px; }
+      .menu-card-body { padding: 22px; }
+      .menu-price-action-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .menu-price-action-row .btn {
+        width: 100%;
+        min-height: 52px;
+      }
+
+      .order-steps-section { padding: 48px 0; }
+      .steps-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION BAR
+       ========================================================= -->
+  <nav class="site-nav" aria-label="Main Navigation">
+    <div class="container site-nav__inner">
+      <a href="index.html" class="site-logo" aria-label="Bening's Delicacies Home">
+        <img src="Logo/Bening's.jpeg" alt="Bening's Delicacies Logo" class="logo-img" />
+        <div class="logo-text-group">
+          <span class="logo-title">Bening's</span>
+          <span class="logo-subtitle">Delicacies</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="site-nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="menu.html" class="active" aria-current="page">Delicacies Menu</a></li>
+        <li><a href="contact.html">Contact & Order</a></li>
+      </ul>
+
+      <div class="site-nav__cta">
+        <a href="contact.html" class="btn btn-primary" aria-label="Place an order">Order Now</a>
+      </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-overlay-menu" id="mobileOverlayMenu" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="menu.html" class="active" aria-current="page">Delicacies Menu</a>
+    <a href="contact.html">Contact & Order</a>
+    <a href="contact.html" class="btn btn-primary btn-full">Order Now</a>
+  </div>
+
+  <!-- =========================================================
+       PAGE HERO
+       ========================================================= -->
+  <header class="page-hero">
+    <div class="container">
+      <h1>Our Homemade Delicacies</h1>
+      <p>Every piece is cooked fresh, made to order with traditional family recipes and genuine care.</p>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       ORDER NOTICE BANNER
+       ========================================================= -->
+  <aside class="order-notice" aria-label="Notice about preparation time">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0;"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+    <span>All delicacies are cooked to order. Please allow 1 to 2 days advance notice so we can bake fresh for you.</span>
+  </aside>
+
+  <!-- =========================================================
+       MENU PRODUCTS (2x2 GRID DESKTOP / 1-COL MOBILE)
+       ========================================================= -->
+  <main class="menu-section">
+    <div class="container">
+      
+      <div class="menu-grid">
+        
+        <!-- ITEM 1: ESPASOL -->
+        <article class="menu-card" aria-label="Espasol delicacy card">
+          <div class="menu-card-img-placeholder" style="background: var(--accent-light); padding: 0; overflow: hidden;" role="img" aria-label="Freshly rolled homemade Espasol dusted with toasted sweet rice flour">
+            <span class="menu-badge">Pasalubong Classic</span>
+            <img src="Food Photos/Espasol.png" alt="Freshly rolled homemade Espasol dusted with toasted sweet rice flour" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition);" class="menu-food-img" />
+          </div>
+
+          <div class="menu-card-body">
+            <h3>Espasol</h3>
+            <p class="desc">
+              A classic Laguna heritage delicacy crafted from glutinous rice flour, simmered in pure coconut milk, and dusted with fragrant toasted sweet rice. Available individually or in bulk party boxes.
+            </p>
+            <div class="tags-row">
+              <span class="tag-pill">₱11 / Piece</span>
+              <span class="tag-pill">Box of 20 pcs (₱220)</span>
+              <span class="tag-pill">Box of 30 pcs (₱330)</span>
+              <span class="tag-pill">Box of 50 pcs (₱550)</span>
+              <span class="tag-pill" style="border-color: var(--primary); color: var(--primary); font-weight: 700;">Travel &amp; Flight Ready</span>
+            </div>
+            <div class="menu-price-action-row">
+              <div class="menu-price-block">
+                <span class="menu-price-label">Price per piece</span>
+                <span class="menu-price-val">₱11 <span style="font-size: 14px; font-weight: 500; color: var(--neutral-mid); font-family: var(--font-body);">/ pc</span></span>
+              </div>
+              <a href="contact.html?product=espasol" class="btn btn-primary" aria-label="Order Espasol">Place an Order</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 2: CASSAVA CAKE -->
+        <article class="menu-card" aria-label="Cassava Cake delicacy card">
+          <div class="menu-card-img-placeholder" style="background: var(--accent-light); padding: 0; overflow: hidden;" role="img" aria-label="Freshly baked homemade Cassava Cake in a traditional llanera with golden caramelized coconut custard topping">
+            <span class="menu-badge">Best Seller</span>
+            <img src="Food Photos/Cassava Cake.jpeg" alt="Freshly baked homemade Cassava Cake in a traditional llanera with golden caramelized coconut custard topping" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition);" class="menu-food-img" />
+          </div>
+
+          <div class="menu-card-body">
+            <h3>Cassava Cake</h3>
+            <p class="desc">
+              Rich and dense freshly grated cassava cake layered with a luscious, caramelized coconut milk custard. Slow-baked to golden perfection with comforting sweetness.
+            </p>
+            <div class="tags-row">
+              <span class="tag-pill">₱85 / Tray</span>
+              <span class="tag-pill">Freshly Baked</span>
+              <span class="tag-pill">Family Favorite</span>
+            </div>
+            <div class="menu-price-action-row">
+              <div class="menu-price-block">
+                <span class="menu-price-label">Price per tray</span>
+                <span class="menu-price-val">₱85 <span style="font-size: 14px; font-weight: 500; color: var(--neutral-mid); font-family: var(--font-body);">/ tray</span></span>
+              </div>
+              <a href="contact.html?product=cassava" class="btn btn-primary" aria-label="Order Cassava Cake">Place an Order</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 3: BIBINGKA -->
+        <article class="menu-card" aria-label="Bibingka delicacy card">
+          <div class="menu-card-img-placeholder" style="background: var(--accent-light); padding: 0; overflow: hidden;" role="img" aria-label="Bibingka cooked in banana leaves with salted egg and cheese">
+            <span class="menu-badge">Traditional Favorite</span>
+            <img src="Food Photos/Bibingka2.jpeg" alt="Bibingka cooked in banana leaves with salted egg and cheese" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition);" class="menu-food-img" />
+          </div>
+
+          <div class="menu-card-body">
+            <h3>Bibingka</h3>
+            <p class="desc">
+              Traditional rice cakes baked inside fresh banana leaves, topped with slices of salted egg, melted butter, and grated cheese. Warm, fragrant, and delightfully fluffy.
+            </p>
+            <div class="tags-row">
+              <span class="tag-pill">3 Pieces for ₱25</span>
+              <span class="tag-pill">Baked in Banana Leaves</span>
+              <span class="tag-pill">Merienda Special</span>
+            </div>
+            <div class="menu-price-action-row">
+              <div class="menu-price-block">
+                <span class="menu-price-label">Price for 3 pieces</span>
+                <span class="menu-price-val">₱25 <span style="font-size: 14px; font-weight: 500; color: var(--neutral-mid); font-family: var(--font-body);">/ 3 pcs</span></span>
+              </div>
+              <a href="contact.html?product=bibingka" class="btn btn-primary" aria-label="Order Bibingka">Place an Order</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ITEM 4: HOMEMADE KIMCHI -->
+        <article class="menu-card" aria-label="Kimchi delicacy card">
+          <div class="menu-card-img-placeholder" style="background: var(--accent-light); padding: 0; overflow: hidden;" role="img" aria-label="Homemade Kimchi in microwavable container - Seasonal batch">
+            <span class="menu-badge">Seasonal Special</span>
+            <img src="Food Photos/Kimchi.jpeg" alt="Homemade Kimchi in microwavable container - Seasonal batch" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition);" class="menu-food-img" />
+          </div>
+
+          <div class="menu-card-body">
+            <h3>Homemade Kimchi</h3>
+            <p class="desc">
+              Authentic Korean-style fermented Napa cabbage prepared in small seasonal batches with fresh ginger, garlic, radish, and seasonings. Packed fresh in a convenient, sealed microwavable container.
+            </p>
+            <div class="tags-row">
+              <span class="tag-pill">₱120 / Container</span>
+              <span class="tag-pill">Microwavable Tub</span>
+              <span class="tag-pill">Probiotic</span>
+            </div>
+            <div class="menu-price-action-row">
+              <div class="menu-price-block">
+                <span class="menu-price-label">Per microwavable container</span>
+                <span class="menu-price-val">₱120 <span style="font-size: 14px; font-weight: 500; color: var(--neutral-mid); font-family: var(--font-body);">/ tub</span></span>
+              </div>
+              <a href="contact.html?product=kimchi" class="btn btn-primary" aria-label="Order Kimchi">Place an Order</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================
+       HOW TO ORDER SECTION
+       ========================================================= -->
+  <section class="order-steps-section" aria-labelledby="steps-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Simple & Convenient</span>
+        <h2 class="section-title" id="steps-heading">How to Order</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">1</div>
+          <h3>Select Your Delicacy</h3>
+          <p>Browse our menu and decide on the items, tray sizes, or pack quantities for your gathering.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">2</div>
+          <h3>Send Us a Message</h3>
+          <p>Fill out our simple order form with your preferred date, or contact us directly via phone or email.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number" aria-hidden="true">3</div>
+          <h3>Pickup or Delivery</h3>
+          <p>We bake fresh on your scheduled date. Pick up at our location in Nagcarlan, Laguna, or arrange delivery to areas near Liliw, San Pablo &amp; Santa Cruz (delivery fee applies).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+            <img src="Logo/Bening's.jpeg" alt="Bening's Delicacies Logo" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center; border: 2px solid var(--accent);" />
+            <h4 style="margin: 0; color: #FFFFFF; font-size: 22px;">Bening's Delicacies</h4>
+          </div>
+          <p>Filipino cook-to-order specialties made with time-honored recipes, genuine warmth, and pure dedication to quality.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="menu.html">Delicacies Menu</a></li>
+            <li><a href="contact.html">Contact & Order</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Our Delicacies</h5>
+          <ul>
+            <li><a href="menu.html">Espasol</a></li>
+            <li><a href="menu.html">Cassava Cake</a></li>
+            <li><a href="menu.html">Bibingka</a></li>
+            <li><a href="menu.html">Homemade Kimchi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Get In Touch</h5>
+          <ul>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: rgba(245,234,216,0.75);">Nagcarlan, Laguna</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: rgba(245,234,216,0.75);">Mon – Sat: 8:00 AM – 6:00 PM</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 10px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <a href="contact.html">Send Order Message</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Bening's Delicacies. All rights reserved.</p>
+        <p>Cooked fresh to order · Made with love in the Philippines</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       FIXED BOTTOM NAVIGATION (FOR MOBILE)
+       ========================================================= -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+    <a href="index.html" class="bottom-nav-item" aria-label="Home page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Home</span>
+    </a>
+
+    <a href="menu.html" class="bottom-nav-item active" aria-label="Delicacies menu" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+        <line x1="6" y1="1" x2="6" y2="4"></line>
+        <line x1="10" y1="1" x2="10" y2="4"></line>
+        <line x1="14" y1="1" x2="14" y2="4"></line>
+      </svg>
+      <span>Menu</span>
+    </a>
+
+    <a href="about.html" class="bottom-nav-item" aria-label="About us">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <span>About</span>
+    </a>
+
+    <a href="contact.html" class="bottom-nav-item" aria-label="Contact and ordering">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const overlayMenu = document.getElementById('mobileOverlayMenu');
+    if (menuBtn && overlayMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = overlayMenu.classList.toggle('is-open');
+        menuBtn.setAttribute('aria-expanded', isOpen);
+        overlayMenu.setAttribute('aria-hidden', !isOpen);
+      });
+      overlayMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          overlayMenu.classList.remove('is-open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+          overlayMenu.setAttribute('aria-hidden', 'true');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
